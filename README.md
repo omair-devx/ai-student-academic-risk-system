@@ -39,7 +39,7 @@ test pass:
 | Horizon | Features | CV-selected winner | CV macro-F1 | **Test macro-F1** | ROC-AUC (Dropout) |
 |---|---|---|---|---|---|
 | **H1** — predict from semester 1 | 24 | `svm_rbf_balanced` | 0.580 | **0.546** | 0.813 |
-| **H2** — predict from semester 2 | 30 | `random_forest_balanced` | 0.682 | **0.650** | 0.902 |
+| **H2** — predict from semester 2 | 30 | `random_forest_balanced` | 0.682 | **0.650** | 0.890 |
 
 Baselines for context: a majority-class dummy scores **0.222** macro-F1 on both
 horizons. The +0.104 gain from H1 → H2 is the measurable information value of
@@ -50,21 +50,51 @@ second-semester data.
 
 ## Quick start
 
-```bash
+```powershell
+# 1. clone
 git clone https://github.com/omair-devx/ai-student-academic-risk-system.git
 cd ai-student-academic-risk-system
 
-pip install -r requirements.txt      # Python 3.13
-python -m ml.preprocessing.verify    # regenerates data/processed/ (raw data is fetched separately)
-python -m backend.app.main           # API → http://127.0.0.1:8000/docs
+# 2. Python deps (Python 3.13)
+pip install -r requirements.txt
 
-# in a second terminal
-cd frontend && npm install && npm run dev   # dashboard → http://localhost:5173
+# 3. RESTORE THE RAW DATASETS — required. data/raw/ is gitignored and there is
+#    deliberately no downloader script; fetch the official zips and unpack them.
+#    URLs, SHA256 checksums and expected shapes: data/README.md
+New-Item -ItemType Directory -Force data\raw\uci697, data\raw\uci320\student | Out-Null
+Invoke-WebRequest "https://archive.ics.uci.edu/static/public/697/predict+students+dropout+and+academic+success.zip" -OutFile data\raw\uci697\uci697.zip
+Invoke-WebRequest "https://archive.ics.uci.edu/static/public/320/student+performance.zip"                            -OutFile data\raw\uci320\uci320.zip
+Expand-Archive data\raw\uci697\uci697.zip -DestinationPath data\raw\uci697 -Force
+Expand-Archive data\raw\uci320\uci320.zip -DestinationPath data\raw\uci320 -Force
+Expand-Archive data\raw\uci320\student.zip -DestinationPath data\raw\uci320\student -Force
+
+# 4. validate raw data + build data/processed/ (6 split files)
+python -m ml.eda.run_eda              # → reports/eda_report.md + reports/figs/
+python -m ml.preprocessing.verify     # → reports/preprocessing_report.md + data/processed/uci697/*.csv
+
+# 5. API → http://127.0.0.1:8000/docs
+python -m backend.app.main
+
+# 6. dashboard, in a SECOND terminal → http://localhost:5173
+cd frontend
+npm install
+npm run dev
 ```
 
-`data/raw/` is intentionally **not** committed — datasets are re-downloadable
-from UCI (see [`data/README.md`](data/README.md)). Trained `model.joblib`
-artefacts are also excluded; regenerate them with `python -m ml.registry.export`.
+Expected raw layout after step 3 (paths are what the code reads —
+`ml/eda/run_eda.py:42-44`):
+
+```
+data/raw/uci697/data.csv                  533,230 B   UCI #697
+data/raw/uci320/student/student-por.csv    93,220 B   UCI #320
+data/raw/uci320/student/student-mat.csv    56,993 B   UCI #320
+```
+
+If a file is missing or wrong, `ml.eda.run_eda` fails fast with a
+`FileNotFoundError` naming the path and pointing at `data/README.md`.
+
+Trained `model.joblib` artefacts are excluded too — regenerate them with
+`python -m ml.registry.export` (re-runs the Phase-4 protocol, ~3 min).
 
 **Current status: Phase 7 complete** (architecture, dataset acquisition, EDA,
 leakage audit, preprocessing, training, registry + inference, FastAPI backend,
