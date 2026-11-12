@@ -1,0 +1,21 @@
+# Phase 2 (EDA) dependencies — pinned to what is installed and verified.
+# Comment lines explain WHY each dependency is needed.
+pandas>=2.3        # tabular data loading, grouping, correlation analysis
+numpy>=2.2         # numeric arrays; pandas' underlying compute layer
+matplotlib>=3.10   # EDA visualizations (used with the non-interactive "Agg" backend
+                   # so scripts work on headless machines / CI without a display)
+tabulate>=0.9      # required by pandas' df.to_markdown() used in the EDA report
+scikit-learn>=1.9,<1.11  # Phase 3+: pipelines/CV/models, Phase 5 export.
+                         # UPPER BOUND: SVC(probability=True) is deprecated in
+                         # 1.9 and removed in 1.11; its replacement
+                         # CalibratedClassifierCV.predict uses argmax-proba and
+                         # would diverge from our evaluated margin predictions —
+                         # migrating requires re-evaluation, not a pip bump.
+joblib>=1.5        # Phase 5: model.joblib persistence (loaded directly by the
+                   # registry; also a scikit-learn dependency)
+fastapi>=0.115     # Phase 6: HTTP API — pydantic gives the 422 validation
+                   # contract (unknown/missing/non-numeric fields) for free
+uvicorn>=0.30      # Phase 6: ASGI server that runs the FastAPI app
+
+# Added in LATER phases (kept out until then to avoid unused installs):
+# pytest, ruff     # Phase 8: tests + linting

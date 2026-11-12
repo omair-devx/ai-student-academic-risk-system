@@ -1,0 +1,31 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Environment / secrets ---
+# .env holds real secrets (DB URLs, keys) and must NEVER be committed.
+# .env.example (committed) shows the expected variable names without values.
+.env
+
+# --- Data: keep the repo small and reproducible-from-source ---
+# Raw datasets are re-downloadable from official UCI URLs (see data/README.md),
+# so they are not committed. data/README.md IS committed (it documents sources).
+data/raw/
+data/processed/
+
+# --- Trained model binaries + generated registry metadata ---
+# Model artifacts are regenerable from code + data via ml/registry/export.py,
+# so version folders stay out of git (docs/ARCHITECTURE.md §8).
+# The `current` pointer file (ml/registry/current) IS committed: it records
+# which version is active — a deliberate, reviewable one-line state change.
+ml/registry/*/[!current]*
+ml/registry/**/*.joblib
+ml/registry/**/*.pkl
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini

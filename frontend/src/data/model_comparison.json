@@ -1,0 +1,250 @@
+[
+  {
+    "horizon": "H1",
+    "config_id": "dummy_majority",
+    "label": "Dummy (majority)",
+    "cv_macro_f1": 0.222,
+    "test_macro_f1": 0.2221,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "logreg",
+    "label": "Logistic Regression",
+    "cv_macro_f1": 0.5533,
+    "test_macro_f1": 0.5053,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "logreg_balanced",
+    "label": "Logistic Regression (balanced)",
+    "cv_macro_f1": 0.566,
+    "test_macro_f1": 0.5448,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "knn5",
+    "label": "KNN (k=5)",
+    "cv_macro_f1": 0.4932,
+    "test_macro_f1": 0.4704,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "gauss_nb",
+    "label": "Gaussian NB",
+    "cv_macro_f1": 0.228,
+    "test_macro_f1": 0.2314,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "decision_tree",
+    "label": "Decision Tree (default)",
+    "cv_macro_f1": 0.4828,
+    "test_macro_f1": 0.4837,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "decision_tree_balanced",
+    "label": "Decision Tree (balanced)",
+    "cv_macro_f1": 0.4866,
+    "test_macro_f1": 0.4641,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "decision_tree_d3",
+    "label": "Decision Tree (depth=3)",
+    "cv_macro_f1": 0.4486,
+    "test_macro_f1": 0.4414,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "decision_tree_d5",
+    "label": "Decision Tree (depth=5)",
+    "cv_macro_f1": 0.4611,
+    "test_macro_f1": 0.4753,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "decision_tree_d10",
+    "label": "Decision Tree (depth=10)",
+    "cv_macro_f1": 0.5006,
+    "test_macro_f1": 0.4678,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "svm_rbf",
+    "label": "SVM (RBF)",
+    "cv_macro_f1": 0.4898,
+    "test_macro_f1": 0.4922,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "svm_rbf_balanced",
+    "label": "SVM (RBF, balanced)",
+    "cv_macro_f1": 0.5803,
+    "test_macro_f1": 0.5459,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "svm_linear",
+    "label": "SVM (linear)",
+    "cv_macro_f1": 0.5254,
+    "test_macro_f1": 0.4891,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "random_forest",
+    "label": "Random Forest",
+    "cv_macro_f1": 0.5142,
+    "test_macro_f1": 0.5243,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "random_forest_balanced",
+    "label": "Random Forest (balanced)",
+    "cv_macro_f1": 0.5766,
+    "test_macro_f1": 0.5387,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "dummy_majority",
+    "label": "Dummy (majority)",
+    "cv_macro_f1": 0.222,
+    "test_macro_f1": 0.2221,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "logreg",
+    "label": "Logistic Regression",
+    "cv_macro_f1": 0.6597,
+    "test_macro_f1": 0.6513,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "logreg_balanced",
+    "label": "Logistic Regression (balanced)",
+    "cv_macro_f1": 0.6808,
+    "test_macro_f1": 0.659,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "knn5",
+    "label": "KNN (k=5)",
+    "cv_macro_f1": 0.5782,
+    "test_macro_f1": 0.5667,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "gauss_nb",
+    "label": "Gaussian NB",
+    "cv_macro_f1": 0.2321,
+    "test_macro_f1": 0.2336,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "decision_tree",
+    "label": "Decision Tree (default)",
+    "cv_macro_f1": 0.5774,
+    "test_macro_f1": 0.6037,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "decision_tree_balanced",
+    "label": "Decision Tree (balanced)",
+    "cv_macro_f1": 0.5745,
+    "test_macro_f1": 0.5651,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "decision_tree_d3",
+    "label": "Decision Tree (depth=3)",
+    "cv_macro_f1": 0.6045,
+    "test_macro_f1": 0.6427,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "decision_tree_d5",
+    "label": "Decision Tree (depth=5)",
+    "cv_macro_f1": 0.606,
+    "test_macro_f1": 0.6228,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "decision_tree_d10",
+    "label": "Decision Tree (depth=10)",
+    "cv_macro_f1": 0.6032,
+    "test_macro_f1": 0.6259,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "svm_rbf",
+    "label": "SVM (RBF)",
+    "cv_macro_f1": 0.6508,
+    "test_macro_f1": 0.6371,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "svm_rbf_balanced",
+    "label": "SVM (RBF, balanced)",
+    "cv_macro_f1": 0.6786,
+    "test_macro_f1": 0.6661,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "svm_linear",
+    "label": "SVM (linear)",
+    "cv_macro_f1": 0.6631,
+    "test_macro_f1": 0.6547,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "random_forest",
+    "label": "Random Forest",
+    "cv_macro_f1": 0.6397,
+    "test_macro_f1": 0.6113,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H2",
+    "config_id": "random_forest_balanced",
+    "label": "Random Forest (balanced)",
+    "cv_macro_f1": 0.6823,
+    "test_macro_f1": 0.6499,
+    "experiment": "A"
+  },
+  {
+    "horizon": "H1",
+    "config_id": "svm_rbf_balanced",
+    "label": "SVM (RBF, balanced)",
+    "cv_macro_f1": 0.5285,
+    "test_macro_f1": 0.5112,
+    "experiment": "B"
+  }
+]
